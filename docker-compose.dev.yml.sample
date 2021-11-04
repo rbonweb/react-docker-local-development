@@ -1,0 +1,24 @@
+version: "3.8"
+
+services:
+  app:
+    container_name: react-docker-local-development
+    image: react-docker-local-development
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    tty: true
+    # Environment Varibales
+    environment:
+      - "REACT_APP_API_DOMAIN=http://localhost:5000"
+      - "CHOKIDAR_USEPOLLING=true"
+    volumes:
+      - ./src:/app/src/
+    ports:
+      - 3000:3000
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge
