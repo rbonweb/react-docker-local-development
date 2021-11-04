@@ -18,6 +18,7 @@
 .env.test.local
 .env.production.local
 
+# Docker local setup files
 docker-compose.dev.yml
 Dockerfile.dev
 
